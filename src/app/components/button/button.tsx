@@ -19,9 +19,10 @@ export default function Button({
 
   const variantStyles = {
     default:
-      "bg-blue-500 hover:bg-blue-700 text-white  active:bg-blue-800 focus:ring-blue-500",
-    outline: "border text-blue-500 hover:bg-gray-100",
-    text: "hover:bg-gray-100 hover:text-blue-500",
+      "bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-blue-700 text-white dark:active:bg-blue-800 active:bg-blue-800 focus:ring-blue-500",
+    outline:
+      "border dark:border-gray-300 dark:text-white  text-blue-500 hover:bg-gray-200 dark:hover:bg-gray-600",
+    text: "hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-blue-500 text-blue-500 dark:text-white",
   };
 
   const sizeStyles = {
@@ -38,11 +39,13 @@ export default function Button({
     <button
       onClick={onClick}
       disabled={disabled || loading}
-      className={`${baseStyles} ${variantStyles[variant]} ${className} ${
+      className={` ${baseStyles} ${variantStyles[variant]} ${className} ${
         sizeStyles[size]
-      } ${disabled || loading ? disabledStyles : ""}`}
+      } ${disabled ? disabledStyles : ""}`}
     >
-      {loading && <Spin className="mr-2" size={7} loading={loading} />}
+      {loading && (
+        <Spin className="mr-2" size={7} loading={loading} variant="neutral" />
+      )}
       {!loading && icon && iconPosition == "left" && (
         <span className={`${iconSpacing}`}>{icon}</span>
       )}

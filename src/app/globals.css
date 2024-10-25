@@ -6,9 +6,14 @@
 
 body {
   font-family: "Sen", sans-serif;
+  @apply bg-gray-50;
 }
 
-@keyframes orbit-red {
+.dark body {
+  @apply bg-[#494949];
+}
+
+@keyframes orbit-left-right {
   0% {
     transform: translateX(0) scale(1);
     opacity: 1;
@@ -30,7 +35,7 @@ body {
   }
 }
 
-@keyframes orbit-blue {
+@keyframes orbit-right-left {
   0% {
     transform: translateX(0) scale(1);
     opacity: 1;
@@ -53,10 +58,10 @@ body {
   }
 }
 
-.animate-orbit-red {
-  animation: orbit-red 1s linear infinite;
+.animate-orbit-left-right {
+  animation: orbit-left-right 1s linear infinite;
 }
 
-.animate-orbit-blue {
-  animation: orbit-blue 1s linear infinite;
+.animate-orbit-right-left {
+  animation: orbit-right-left 1s linear infinite;
 }
