@@ -50,8 +50,22 @@ export default function Page() {
         {theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
       </Button>
 
-      <div>
-        <Input placeholder="Teste" variant="default"></Input>
+      <div className="flex items-center">
+        <Input placeholder="Teste" variant="default" size="large" />
+        <Input placeholder="Teste" variant="default" size="default" />
+        <Input placeholder="Teste" variant="default" size="small" />
+      </div>
+
+      <div className="flex items-center">
+        <Input placeholder="Teste" variant="outline" size="large" />
+        <Input placeholder="Teste" variant="outline" size="default" />
+        <Input placeholder="Teste" variant="outline" size="small" />
+      </div>
+
+      <div className="flex items-center">
+        <Input placeholder="Teste" variant="filledLarge" size="large" />
+        <Input placeholder="Teste" variant="filledLarge" size="default" />
+        <Input placeholder="Teste" variant="filledLarge" size="small" />
       </div>
     </>
   );
