@@ -1,4 +1,4 @@
-export interface SpinProps {
+export interface SpinType {
   size?: number;
   className?: string;
   loading?: boolean;

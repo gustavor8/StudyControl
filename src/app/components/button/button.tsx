@@ -1,58 +1,51 @@
 import React from "react";
-import { ButtonProp } from "./button.types";
-import Spin from "../spin/spin";
+import { ButtonProps } from "./Button.type";
+import Spin from "../Spin/Spin";
+import Icon from "../Icon/Icon";
 
 export default function Button({
   children,
   onClick,
   variant = "default",
-  size = "default",
+  size = "medium",
   disabled = false,
   loading = false,
   loadingText = "loading...",
   className = "",
   iconPosition = "left",
   icon,
-}: ButtonProp) {
+}: ButtonProps) {
   const baseStyles =
-    "flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all ease-in-out duration-150 m-4 rounded-lg relative";
+    "flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all ease-in-out duration-150 m-4 rounded-full relative gap-2";
 
   const variantStyles = {
     default:
       "bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-blue-700 text-white dark:active:bg-blue-800 active:bg-blue-800 focus:ring-blue-500",
     outline:
-      "border dark:border-gray-300 dark:text-white  text-blue-500 hover:bg-gray-200 dark:hover:bg-gray-600",
+      "border border-gray-300 dark:border-gray-300 dark:text-white  text-blue-500 hover:bg-gray-200 dark:hover:bg-gray-600",
     text: "hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-blue-500 text-blue-500 dark:text-white",
   };
 
   const sizeStyles = {
-    default: "px-4 py-2 text-base",
+    medium: "px-4 py-2 text-base",
     small: "px-3 py-1 text-sm",
     large: "px-6 py-3 text-lg",
   };
 
-  const iconSpacing = icon && iconPosition == "left" ? "mr-2" : "ml-2";
-
-  const disabledStyles = "opacity-50";
+  const disabledStyles = "opacity-70";
 
   return (
     <button
       onClick={onClick}
       disabled={disabled || loading}
-      className={` ${baseStyles} ${variantStyles[variant]} ${className} ${
+      className={` ${baseStyles} ${variantStyles[variant]} ${
         sizeStyles[size]
-      } ${disabled ? disabledStyles : ""}`}
+      } ${disabled ? disabledStyles : ""} ${className}`}
     >
-      {loading && (
-        <Spin className="mr-2" size={7} loading={loading} variant="neutral" />
-      )}
-      {!loading && icon && iconPosition == "left" && (
-        <span className={`${iconSpacing}`}>{icon}</span>
-      )}
+      {loading && <Spin size={7} loading={loading} variant="neutral" />}
+      {!loading && icon && iconPosition == "left" && <Icon icon={icon} />}
       {loading ? loadingText : children}
-      {!loading && icon && iconPosition == "right" && (
-        <span className={`${iconSpacing}`}>{icon}</span>
-      )}
+      {!loading && icon && iconPosition == "right" && <Icon icon={icon} />}
     </button>
   );
 }

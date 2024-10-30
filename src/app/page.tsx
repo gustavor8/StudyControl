@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Button from "./components/button/button";
-import Spin from "./components/spin/spin";
+import Button from "./components/Button/Button";
+import Spin from "./components/Spin/Spin";
 import { useDarkMode } from "@/hooks/useDarkMode";
+import { HomeIcon } from "@/icons/HomeIcon";
+import Icon from "./components/Icon/Icon";
+import { SettingsIcon } from "@/icons/SettingsIcon";
 
 export default function Page() {
   const [loading, setLoading] = useState(false);
@@ -18,7 +21,7 @@ export default function Page() {
     <>
       <div className="flex items-center">
         <Button size="large">default large</Button>
-        <Button onClick={handleClick} loading={loading}>
+        <Button onClick={handleClick} loading={loading} icon={HomeIcon}>
           default default
         </Button>
         <Button size="small">default small</Button>
@@ -26,23 +29,43 @@ export default function Page() {
 
       <div className="flex items-center">
         <Button variant="outline" size="large">
-          default large
+          outline large
         </Button>
-        <Button variant="outline">default default</Button>
+        <Button
+          icon={SettingsIcon}
+          variant="outline"
+          onClick={handleClick}
+          loading={loading}
+        >
+          outline default
+        </Button>
         <Button variant="outline" size="small">
-          default small
+          outline small
         </Button>
       </div>
 
       <div className="flex items-center">
         <Button variant="text" size="large">
-          default large
+          text large
         </Button>
-        <Button variant="text">default default</Button>
+        <Button variant="text">text default</Button>
         <Button variant="text" size="small">
-          default small
+          text small
         </Button>
       </div>
+
+      <div className="flex items-center">
+        <Button disabled>default disabled</Button>
+        <Button variant="outline" disabled>
+          outline disabled
+        </Button>
+        <Button variant="text" disabled>
+          text disabled
+        </Button>
+      </div>
+
+      <Icon icon={HomeIcon} />
+
       <Spin loading={true} />
       <Spin loading={true} variant="neutral" />
       <Button onClick={toggleTheme}>

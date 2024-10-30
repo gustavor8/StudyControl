@@ -1,11 +1,11 @@
-import { SpinProps } from "./spin.type";
+import { SpinType } from "./Spin.type";
 
 export default function Spin({
   size = 12,
   className,
   loading = false,
   variant = "default",
-}: SpinProps) {
+}: SpinType) {
   if (!loading) return null;
 
   const variantStyle = {

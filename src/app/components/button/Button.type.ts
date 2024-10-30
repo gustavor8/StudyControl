@@ -1,12 +1,12 @@
-export interface ButtonProp {
+export interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   variant?: "default" | "outline" | "text";
-  size?: "default" | "small" | "large";
+  size?: "small" | "medium" | "large";
   className?: string;
-  icon?: React.ReactNode;
+  icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   disabled?: boolean;
   loading?: boolean;
-  loadingText?: string; 
+  loadingText?: string;
   iconPosition?: "left" | "right";
 }
