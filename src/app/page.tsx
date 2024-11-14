@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import Button from "./components/Button/Button";
-import Spin from "./components/Spin/Spin";
 import { useDarkMode } from "@/hooks/useDarkMode";
-import { HomeIcon } from "@/icons/HomeIcon";
-import Icon from "./components/Icon/Icon";
-import { SettingsIcon } from "@/icons/SettingsIcon";
+import { DarkIcon } from "../icons/DarkIcon";
+import { LightIcon } from "../icons/LightIcon";
+import { SendIcon } from "@/icons/SendIcon";
+import Input from "./components/input/input";
+import { EmailIcon } from "@/icons/EmailIcon";
 
 export default function Page() {
   const [loading, setLoading] = useState(false);
@@ -19,58 +20,23 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex items-center">
-        <Button size="large">default large</Button>
-        <Button onClick={handleClick} loading={loading} icon={HomeIcon}>
-          default default
-        </Button>
-        <Button size="small">default small</Button>
-      </div>
-
-      <div className="flex items-center">
-        <Button variant="outline" size="large">
-          outline large
+      <div className="flex gap-3 m-4">
+        <Button variant="outline">Cancel</Button>
+        <Button onClick={handleClick} loading={loading}>
+          Confirm
         </Button>
         <Button
-          icon={SettingsIcon}
-          variant="outline"
-          onClick={handleClick}
-          loading={loading}
+          icon={theme == "dark" ? DarkIcon : LightIcon}
+          onClick={toggleTheme}
+          variant="text"
         >
-          outline default
+          {theme == "dark" ? "Dark" : "Light"}
         </Button>
-        <Button variant="outline" size="small">
-          outline small
-        </Button>
+        <Button icon={SendIcon}>Sent</Button>
       </div>
-
-      <div className="flex items-center">
-        <Button variant="text" size="large">
-          text large
-        </Button>
-        <Button variant="text">text default</Button>
-        <Button variant="text" size="small">
-          text small
-        </Button>
+      <div className="p-2 w-1/4">
+        <Input placeholder="Email" />
       </div>
-
-      <div className="flex items-center">
-        <Button disabled>default disabled</Button>
-        <Button variant="outline" disabled>
-          outline disabled
-        </Button>
-        <Button variant="text" disabled>
-          text disabled
-        </Button>
-      </div>
-
-      <Icon icon={HomeIcon} />
-
-      <Spin loading={true} />
-      <Spin loading={true} variant="neutral" />
-      <Button onClick={toggleTheme}>
-        {theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
-      </Button>
     </>
   );
 }

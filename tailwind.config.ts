@@ -9,12 +9,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: {
-          DEFAULT: "#DCDCDC",
-          dark: "#808080",
-        },
-      },
+      colors: {},
     },
   },
   plugins: [],

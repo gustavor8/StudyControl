@@ -6,7 +6,7 @@ import Icon from "../Icon/Icon";
 export default function Button({
   children,
   onClick,
-  variant = "default",
+  variant = "filled",
   size = "medium",
   disabled = false,
   loading = false,
@@ -16,14 +16,14 @@ export default function Button({
   icon,
 }: ButtonProps) {
   const baseStyles =
-    "flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all ease-in-out duration-150 m-4 rounded-full relative gap-2";
+    "flex items-center justify-center focus:outline-none  focus:ring-violet-500 focus:ring-2 focus:ring-offset-2 transition-all ease-in-out duration-150 rounded-lg  gap-2";
 
   const variantStyles = {
-    default:
-      "bg-blue-500 dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-blue-700 text-white dark:active:bg-blue-800 active:bg-blue-800 focus:ring-blue-500",
+    filled:
+      "bg-violet-500 hover:bg-violet-700 dark:bg-violet-700 dark:hover:bg-violet-800 text-white",
     outline:
-      "border border-gray-300 dark:border-gray-300 dark:text-white  text-blue-500 hover:bg-gray-200 dark:hover:bg-gray-600",
-    text: "hover:bg-gray-200 dark:hover:bg-gray-600 hover:text-blue-500 text-blue-500 dark:text-white",
+      "bg-white border border-neutral-300 text-violet-500 hover:bg-violet-50 dark:bg-neutral-700 dark:text-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600",
+    text: "text-violet-500 hover:bg-violet-100 dark:hover:bg-neutral-600 dark:text-neutral-100",
   };
 
   const sizeStyles = {

@@ -6,11 +6,11 @@
 
 body {
   font-family: "Sen", sans-serif;
-  @apply bg-gray-50;
+  @apply bg-neutral-50;
 }
 
 .dark body {
-  @apply bg-[#494949];
+  @apply bg-neutral-800;
 }
 
 @keyframes orbit-left-right {

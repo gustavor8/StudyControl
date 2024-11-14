@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./global.css";
 
 export default function RootLayout({
   children,
@@ -6,13 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"
-        />
-      </head>
+    <html lang="pt-br">
       <body>{children}</body>
     </html>
   );
